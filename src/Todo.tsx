@@ -1,10 +1,11 @@
 import { TodoType } from "./types/todo";
+import { VFC } from "react";
 
-export const Todo = ({
+export const Todo: VFC<Omit<TodoType, "id">> = ({
   title,
   userId,
   completed = false
-}: Omit<TodoType, "id">) => {
+}) => {
   const completeMark = completed ? "[完]" : "[未]";
   return <p>{`${completeMark}${title}(ユーザー:${userId})`}</p>;
 };
